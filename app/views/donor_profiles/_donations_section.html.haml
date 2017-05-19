@@ -1,0 +1,24 @@
+.container-fluid
+  %h3.donations_table
+    Donations
+  .row
+    .col-sm-3
+    .col-sm-6
+      - if current_user.admin?
+        %label.collapse.add_donation{:for => "_1"} + Add Donation
+        %input#_1{:type => "checkbox"}
+          .donation_form 
+            = render 'donation_form'
+    .col-sm-3
+  .donation_columns.row
+    .col-sm-3.date_column Date Received
+    .col-sm-3.amount_column Amount
+    .col-sm-1
+    .col-sm-3.cause_column Cause
+    .col-sm-2
+  - if @donor_profile.donations.any?
+    %ul.list-group.row.donations= render @donations
+    .total.row
+      .col-sm-3 Total:
+      .col-sm-3= humanized_money_with_symbol @donor_profile.donations_sum, no_cents_if_whole: false
+      .col-sm-6

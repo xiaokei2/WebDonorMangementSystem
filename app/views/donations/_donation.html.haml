@@ -1,0 +1,10 @@
+%li{:id => "donation-#{donation.id}"}
+  .col-sm-3.date_received
+    = donation.date_received.strftime("%m/%d/%Y")
+  .col-sm-3.amount
+    #{humanized_money_with_symbol donation.amount, no_cents_if_whole: false}
+  .col-sm-1
+  .col-sm-3.cause
+    = donation.cause
+  .col-sm-2.delete
+    = link_to "Delete", donation, method: :delete, data: { confirm: "Are you sure?" }

@@ -1,0 +1,10 @@
+= form_for(@donation) do |f|
+  = render 'shared/error_messages', object: f.object
+  = f.label :amount, "Donation amount"
+  = f.text_field :amount, class: 'form-control', data: {autonumeric: {role: 'money', aSign: '$', a_sep: ',', a_dec: '.', vMin: '0.00', vMax: '20000000.00'} }
+  = f.label :cause, "Donation Cause"
+  = f.text_field :cause, class: 'form-control', :maxlength => 40
+  = f.label :date_received, "Date received"
+  = f.date_select(:date_received, start_year: 1999, end_year: Date.today.year)
+  = hidden_field_tag :donor_profile_id, @donor_profile.id
+  = f.submit "Add donation", class: "btn btn-primary"

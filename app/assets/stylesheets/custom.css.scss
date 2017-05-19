@@ -1,0 +1,536 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/* mixins, variables, etc. */
+
+$gray-medium-light: #eaeaea;
+$midnight-blue: #00264d;
+$midnight-blue-light: #004d99;
+$soft-blue: #e6f3ff;
+$light-blue: #b3ccff;
+$light-gray: #e2e6e9;
+
+@mixin box_sizing {
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
+}
+
+
+::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: $light-blue;
+}
+
+::-webkit-scrollbar
+{
+	width: 6px;
+	background-color: $midnight-blue;
+}
+
+::-webkit-scrollbar-thumb
+{
+	background-color: $midnight-blue;
+}
+
+/* universal */
+
+body {
+  padding-top: 60px;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.btn {
+  background-color: $midnight-blue-light;
+  a {
+    color: $soft-blue;
+  }
+}
+
+.center {
+  text-align: center;
+  h1 {
+    margin-bottom: 10px;
+  }
+}
+
+.jumbotron {
+  background-color: $soft-blue;
+  h1 {
+    font-size: 4em;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-left: 100px;
+    margin-right: 100px;
+    font-weight: bold;
+    
+    color: $midnight-blue;
+  }
+  .btn {
+    margin-top: 30px;
+  }
+}
+
+/* typography */
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
+
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.2em;
+  letter-spacing: -1px;
+  font-weight: normal;
+  color: $gray-light;
+}
+
+p {
+  font-size: 1em;
+  line-height: 1.2em;
+}
+
+
+/* header */
+
+#logo {
+  float: left;
+  margin-left: 4px;
+  margin-right: 10px;
+  font-size: 1.7em;
+  color: white;
+  // text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+  &:hover {
+    color: white;
+    text-decoration: none;
+  }
+}
+
+.apple {
+  float: left;
+}
+
+.navbar {
+  background-color: $midnight-blue;
+}
+
+
+.nav.navbar-nav.navbar-right li a {
+  color: $soft-blue;
+}
+
+.nav.navbar-nav.navbar-right li a:hover {
+    background-color: $midnight-blue-light;
+    color: white;
+}
+
+.navbar-nav > li > .dropdown-menu { 
+  background-color: $midnight-blue; 
+}
+
+.li.dropdown {
+  background-color: $midnight-blue;
+}
+//menu appears on mouse hover
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* footer */
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid $gray-medium-light;
+  color: $gray-light;
+  a {
+    color: $gray;
+    &:hover {
+      color: $gray-darker;
+    }
+  }
+  small {
+    float: left;
+  }
+  ul {
+    float: right;
+    list-style: none;
+    li {
+      float: left;
+      margin-left: 15px;
+    }
+  }
+}
+
+/* miscellaneous */
+
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
+}
+
+/* sidebar */
+
+aside {
+  section.user_info {
+    margin-top: 20px;
+  }
+  section {
+    padding: 10px 0;
+    margin-top: 20px;
+    &:first-child {
+      border: 0;
+      padding-top: 0;
+    }
+    span {
+      display: block;
+      margin-bottom: 3px;
+      line-height: 1;
+    }
+    h1 {
+      font-size: 1.4em;
+      text-align: left;
+      letter-spacing: -1px;
+      margin-bottom: 3px;
+      margin-top: 0px;
+    }
+  }
+}
+
+.gravatar {
+  float: left;
+  margin-right: 10px;
+}
+
+.gravatar_edit {
+  margin-top: 15px;
+}
+
+/* forms */
+
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 100%;
+  margin-bottom: 15px;
+  @include box_sizing;
+}
+
+input {
+  height: auto !important;
+}
+
+#error_explanation {
+  color: red;
+  ul {
+    color: red;
+    margin: 0 0 30px 0;
+  }
+}
+
+.field_with_errors {
+  @extend .has-error;
+  .form-control {
+    color: $state-danger-text;
+  }
+}
+
+.checkbox {
+  margin-top: -10px;
+  margin-bottom: 10px;
+  span {
+    margin-left: 20px;
+    font-weight: normal;
+  }
+}
+
+#session_remember_me {
+  width: auto;
+  margin-left: 0;
+}
+
+.first_name {
+  margin: 0 0 1em;
+  padding: 10px;
+  background-color: orange;
+  color: white;
+  border-bottom: 4px solid gold;
+  font-size: 2em;
+  font-style: normal;
+}
+
+
+.table-striped>tbody>tr:nth-child(odd)>td, 
+.table-striped>tbody>tr:nth-child(odd)>th {
+   background-color: $gray-medium-light;
+ }
+ 
+#donor_profiles {
+  margin: 10px;
+  border-collapse: collapse;
+  width: 100%;
+  border-bottom: 2px solid black;
+  .hilite {
+    background-color: yellow;
+  }
+  th {
+    border: 2px solid white;
+    font-weight: bold;
+    background-color: $soft-blue;
+    padding: 4px;
+    text-align: center;
+  }
+  tbody {
+    _height: expression( this.scrollHeight > 599 ? "600px" : "auto" ); /* sets max-height for IE6 */
+    max-height: 15px; /* sets max-height value for all standards-compliant browsers */
+    overflow-y: scroll;
+    td {
+      padding: 4px;
+      text-align: left;
+    }
+  }
+}
+
+#donor_profiles td.sum {
+  text-align: right;
+}
+
+#donor_profiles td.email {
+  text-align: center;
+}
+#donor_profiles td.created_at {
+  text-align: center;
+}
+#donor_profiles td.interests {
+  text-align: center;
+}
+#donor_profiles td.more_info {
+  text-align: center;
+}
+#notice #warning {
+  background: rosybrown;
+  margin: 1em 0;
+  padding: 4px;
+}
+
+form label {
+  display: block;
+  line-height: 25px;
+  font-weight: bold;
+  color: maroon;
+}
+
+/* Users index */
+
+.users {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-bottom: 1px solid $soft-blue;
+  }
+}
+
+/* donations */
+
+.donations {
+  border-top: solid 1px gray;
+  border-bottom: solid 1px gray;
+  _height: expression( this.scrollHeight > 332 ? "333px" : "auto" ); /* sets max-height for IE6 */
+  max-height: 333px; /* sets max-height value for all standards-compliant browsers */
+  overflow-y: scroll;
+  
+  li {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    text-align: right;
+  }
+  li:nth-child(odd) {
+    background: white;
+  }
+  li:nth-child(even) {
+    background: $light-gray;
+  }
+  .amount {
+    display: inline;
+    font-weight: bold;
+    color: $midnight-blue;
+  }
+  .date_received {
+    display: inline;
+  }
+}
+
+.total {
+  padding-bottom: 8px;
+  text-align: right;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.donation_columns {
+  padding-top: 6px;
+  text-align: right;
+  color: gray;
+}
+
+.date_column {
+  text-align: center;
+}
+
+.cause_column {
+  text-align: left;
+}
+
+.date_received {
+  text-align: center;
+}
+
+.cause {
+  text-align: left;
+}
+
+h3.donations_table {
+  text-align: center;
+  padding-bottom: 0px;
+}
+
+.container-fluid {
+  border: 1px solid $midnight-blue;
+  background-color: $soft-blue;
+}
+
+aside {
+  textarea {
+    height: 100px;
+    margin-bottom: 5px;
+  }
+  background: $soft-blue;
+  border: solid 1px $midnight-blue;
+}
+
+.donations_table {
+  font-weight: bold;
+  padding-bottom: 10px;
+}
+
+section.donor_info {
+  h1 {
+    font-weight: bold;
+    font-size: 2.5em;
+    border-bottom: solid 1px $gray-light;
+    padding-bottom: 5px;
+  }
+  h2 {
+    color: $gray;
+    margin-bottom: 5px;
+    margin-top: 10px;
+  }
+  p {
+    color: $gray;
+  }
+}
+
+span.picture {
+  margin-top: 10px;
+  input {
+    border: 0;
+  }
+}
+
+section.donation_form {
+  padding-bottom: 5px;
+  border-bottom: solid 1px black;
+}
+
+.delete {
+  text-align: right;
+}
+
+.collapse{
+  cursor: pointer;
+  display: block;
+  padding-bottom: 5px;
+  padding-top: 10px;
+  font-weight: bold;
+  color: $midnight-blue-light;
+  text-align: center;
+}
+.collapse + input{
+  display: none; /* hide the checkboxes */
+}
+.collapse + input + div{
+  display:none;
+}
+.collapse + input:checked + div{
+  display: block;
+  padding-bottom: 10px;
+}
+
+.pretty th .current {
+  padding-right: 12px;
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+.pretty th .asc { 
+  background-image: url(/images/up_arrow.png); 
+}
+
+.pretty th .desc { 
+  background-image: url(/images/down_arrow.png); 
+}
+
+.add_new {
+  padding-left: 15px;
+  padding-bottom: 15px;
+  font-weight: normal;
+  font-size: 1.3em;
+}
+
+.new_donor_heading {
+  font-size: 1.5em;
+  text-align: center;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+.search_box {
+  padding-left: 12px;
+  padding-top: 15px;
+}
+
+.donor_index_heading {
+  font-weight: bold;
+  font-size: 3em;
+  padding-bottom: 5px;
+  text-align: center;
+}
+
+.new_donor_link {
+  padding-top: 0px;
+  font-size: 1.2em;
+}
+
+.add_donation {
+  padding-top: 0px;
+}

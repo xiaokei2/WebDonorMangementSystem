@@ -1,0 +1,28 @@
+-# edit.html.haml using partial
+
+%h1 Edit Existing Donor Profile
+
+= form_tag donor_profile_path(@donor_profile), :method => :put do
+
+  = label :donor_profile, :first_name, 'First Name'
+  = text_field :donor_profile, 'first_name'
+
+  = label :donor_profile, :last_name, 'Last Name'
+  = text_field :donor_profile, 'last_name'
+  
+  = label :donor_profile, :address, 'Address'
+  = text_field :donor_profile, 'address'
+  
+  = label :donor_profile, :phone_number, 'Phone Number'
+  = text_field :donor_profile, 'phone_number'
+  
+  = label :donor_profile, :email, 'Email'
+  = text_field :donor_profile, 'email'
+  
+  = label :donor_profile, :donation_interests, 'Donation Interests'
+  = text_field :donor_profile, 'donation_interests'
+  
+  = label :donor_profile, :description, 'Description'
+  = text_area :donor_profile, 'description'
+
+  = submit_tag 'Update Donor Info'

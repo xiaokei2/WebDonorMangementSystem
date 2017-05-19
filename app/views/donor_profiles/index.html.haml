@@ -1,0 +1,38 @@
+= will_paginate
+- if logged_in?
+  .donor_index_heading Donors
+  .row
+    .col-sm-3
+    .col-sm-6
+      - if current_user.admin?
+        %label.collapse.new_donor_link{:for => "_1"} + Add new donor
+        %input#_1{:type => "checkbox"}
+          .container-fluid.add_new
+            = render 'new_donor_form'
+    .col-sm-3
+  .row.search_box
+    = form_tag(donor_profiles_path, :method => "get", id: "search-form") do
+      .col-sm-3
+        = text_field_tag :search, params[:search], placeholder: "Search Donors"
+      .col-sm-1
+        = submit_tag "Search", :name => nil
+      .col-sm-7
+  %table.table-striped#donor_profiles
+    %thead
+      %tr
+        %th #{sortable "first_name"}
+        %th #{sortable "last_name"}
+        %th #{sortable "created_at"}
+        %th Email
+        %th Total Donated
+        %th More Info
+    %tbody
+      - @donor_profiles.each do |donor_profile|
+        %tr
+          %td= donor_profile.first_name 
+          %td= donor_profile.last_name
+          %td.created_at= donor_profile.created_at.strftime("%m/%d/%Y")
+          %td.email= donor_profile.email
+          %td.sum= humanized_money_with_symbol donor_profile.donations_sum
+          %td.more_info= link_to "More about #{donor_profile.fullname}...", donor_profile_path(donor_profile)
+= will_paginate

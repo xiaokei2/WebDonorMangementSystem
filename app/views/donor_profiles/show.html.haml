@@ -1,0 +1,25 @@
+%container.donor_profile
+  .row
+    %aside.col-md-5
+      %section.donor_info
+        %h1
+          = @donor_profile.fullname
+          %h2 Email: #{@donor_profile.email}
+          %h2 Phone #: #{@donor_profile.phone_number}
+          %h2 Address: #{@donor_profile.address}
+          %h2 Description
+          %p.description= @donor_profile.description
+    .col-md-7
+      = render 'donations_section'
+            
+
+
+%hr
+.row
+  .col-sm-2
+    - if current_user.admin?
+      = link_to 'Edit', edit_donor_profile_path(@donor_profile)
+      | #{ link_to "Delete", donor_profile_path(@donor_profile), :method => :delete, data: { confirm: "Are you sure?" } }
+      
+  .col-sm-10{:align => "right"}
+    = link_to 'Back to donor profile list', donor_profiles_path

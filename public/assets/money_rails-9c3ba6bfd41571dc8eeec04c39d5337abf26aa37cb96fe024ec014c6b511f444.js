@@ -1,0 +1,1 @@
+(function(){$(function(){var t;return t=$("input[data-role=money]"),t.autoNumeric("init"),t.keydown(function(t){return 13===t.keyCode?$(this).autoNumeric("set",$(this).autoNumeric("get")):void 0})})}).call(this);

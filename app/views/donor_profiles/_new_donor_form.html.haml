@@ -1,0 +1,15 @@
+.new_donor_heading New Donor Form
+
+= form_for(@donor_profile) do |f|
+  .row
+    = render 'shared/error_messages', object: f.object
+    .col-sm-6
+      = f.text_field :first_name, class: 'form-control', :placeholder => 'First Name'
+    .col-sm-6
+      = f.text_field :last_name, class: 'form-control', :placeholder => 'Last Name'
+    .col-sm-12
+      = f.text_field :address, class: 'form-control', :placeholder => 'Address'
+      = f.telephone_field :phone_number, class: 'form-control', :placeholder => 'Phone Number'
+      = f.email_field :email, class: 'form-control', :placeholder => 'Email'
+      = f.text_area :description, class: 'form-control', :placeholder => 'Description'
+      = f.submit 'Submit', class: "btn btn-primary"
